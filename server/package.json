@@ -1,0 +1,18 @@
+{
+  "name": "dingpan-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20.6" },
+  "scripts": {
+    "start": "node --env-file=.env src/index.js",
+    "dev": "node --env-file=.env --watch src/index.js",
+    "vapid": "web-push generate-vapid-keys"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "node-cron": "^3.0.3",
+    "web-push": "^3.6.7"
+  }
+}
