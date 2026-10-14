@@ -33,13 +33,19 @@ stock-app/
 ```bash
 cd server
 npm install
-cp .env.example .env      # 填入上面的金鑰
+vim .env                  # 填入金鑰
+tmux                      # start a new background seesion 
 npm run dev               # 後端跑在 http://localhost:3000
+Press Ctrl + B, then D    # detach from session 
 
 # 另開一個終端機
 cd web
 npm install
+tmux                      # start a new background seesion 
 npm run dev               # 前端跑在 http://localhost:5173，/api 會自動轉到後端
+Press Ctrl + B, then D    # detach from session 
+
+tmux ls                   # list active session 
 ```
 
 打開 http://localhost:5173，輸入 `APP_TOKEN` 登入，到觀察清單輸入代號（例如 2330）加入。
@@ -68,7 +74,7 @@ fetch("/api/admin/run/close", { method: "POST" })  // 收盤判斷
 ```bash
 cd web && npm run build          # 產生 web/dist，後端會直接提供這個網頁
 cd ../server && npm start
-cloudflared tunnel --url http://localhost:3000
+cloudflared tunnel --url http://localhost:5173
 ```
 
 **正式上線**：一台小 VPS（或公司內可對外的機器）＋ Caddy 自動 HTTPS
