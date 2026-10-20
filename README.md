@@ -31,6 +31,7 @@ stock-app/
 需要 Node.js 20.6 以上。
 
 ```bash
+ssh fih@raspberry4.local  # Remote Access
 cd server
 npm install
 vim .env                  # 填入金鑰
